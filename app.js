@@ -15,7 +15,7 @@ var gameStart = null,
 
 function initialize() {
   gameStart = document.querySelector("#gameStart");
-  gameSpeed = document.querySelector("#gameSpeed");
+  //gameSpeed = document.querySelector("#gameSpeed");
   gameArea = document.querySelector("#gameArea");
   gameAreaContext = gameArea.getContext("2d");
   gameAreaWidth = 400;
@@ -31,10 +31,11 @@ function initialize() {
 }
 
 function startGame() {
+  document.getElementById("gameStart").value = "Start";
   playerScore = 0;
   snakeDirection = "right";
-  speedSize = parseInt(gameSpeed.value);
-
+  // speedSize = parseInt(gameSpeed.value);
+  speedSize=2 //change this to control the speed of the snake
   if (speedSize > 9) {
     speedSize = 9;
   } else if (speedSize < 0) {
@@ -80,6 +81,8 @@ function createGameArea() {
     writeScore();
     clearInterval(timer);
     gameStart.disabled = false;
+    //change the start button name to start again
+    document.getElementById("gameStart").value = "Start Again";
     return;
   }
 
