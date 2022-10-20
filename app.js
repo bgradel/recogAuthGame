@@ -133,3 +133,8 @@ function changeDirection(e) {
 
 window.onkeydown = changeDirection;
 window.onload = initialize;
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
