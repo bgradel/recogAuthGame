@@ -18,11 +18,11 @@ function initialize() {
   //gameSpeed = document.querySelector("#gameSpeed");
   gameArea = document.querySelector("#gameArea");
   gameAreaContext = gameArea.getContext("2d");
-  gameAreaWidth = 400;
-  gameAreaHeight = 600;
-  cellWidth = 20;
-  gameArea.width = gameAreaWidth;
-  gameArea.height = gameAreaHeight;
+  gameAreaWidth = 300;
+  gameAreaHeight = 300;
+  cellWidth = 15;
+  gameArea.width = 300;
+  gameArea.height = 300;
 
   gameStart.onclick = function () {
     this.disabled = true;
@@ -35,7 +35,7 @@ function startGame() {
   playerScore = 0;
   snakeDirection = "right";
   // speedSize = parseInt(gameSpeed.value);
-  speedSize=2 //change this to control the speed of the snake
+  speedSize=2; //change this to control the speed of the snake
   if (speedSize > 9) {
     speedSize = 9;
   } else if (speedSize < 0) {
@@ -78,6 +78,7 @@ function createGameArea() {
   }
 
   if ((snakeX == -1) || (snakeX == gameAreaWidth / cellWidth) || (snakeY == -1) || (snakeY == gameAreaHeight / cellWidth) || Control(snakeX, snakeY, snake)) {
+    console.log(snakeX, snakeY);
     writeScore();
     clearInterval(timer);
     gameStart.disabled = false;
